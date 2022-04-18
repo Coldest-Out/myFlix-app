@@ -1,0 +1,24 @@
+{
+  "name": "myflix-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coldest-Out/myFlix-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coldest-Out/myFlix-app/issues"
+  },
+  "homepage": "https://github.com/Coldest-Out/myFlix-app#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
