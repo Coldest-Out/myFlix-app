@@ -107,3 +107,8 @@ node_modules/etag/LICENSE
 node_modules/express/LICENSE
 node_modules/express/node_modules/body-parser/LICENSE
 node_modules/ee-first/LICENSE
+node_modules/basic-auth/LICENSE
+node_modules/basic-auth/node_modules/safe-buffer/LICENSE
+node_modules/morgan/LICENSE
+node_modules/morgan/node_modules/depd/LICENSE
+node_modules/on-headers/LICENSE
