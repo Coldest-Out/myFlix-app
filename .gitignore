@@ -1,6 +1,5 @@
 
 node_modules/lodash/zipObject.js
-*.js
 node_modules/.package-lock.json
 node_modules/lodash/flake.lock
 node_modules/lodash/flake.nix
@@ -12,7 +11,6 @@ node_modules/lodash/release.md
 node_modules/.bin/mime
 *.md
 node_modules/accepts/LICENSE
-*.json
 node_modules/array-flatten/LICENSE
 node_modules/body-parser/LICENSE
 node_modules/body-parser/node_modules/depd/LICENSE
@@ -112,3 +110,5 @@ node_modules/basic-auth/node_modules/safe-buffer/LICENSE
 node_modules/morgan/LICENSE
 node_modules/morgan/node_modules/depd/LICENSE
 node_modules/on-headers/LICENSE
+node_modules/accepts/index.js
+*node_modules/
