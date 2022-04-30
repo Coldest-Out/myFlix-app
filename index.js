@@ -95,13 +95,13 @@ app.post('/users', (_req, res) => {
 });
 
 //Update user information
-app.put('/users/:name', (_req, res) => {
+app.post('/users/:name', (_req, res) => {
   res.status(200).send(`Request received to update name for ${req.params.name}`);
 });
 
 //Adding favorites
-app.put('/favorites/:id/:title', (_req, res) => {
-  res.status(200).send(`Adding ${req.params.title} to favorites for ${req.params.name}`);
+app.post('/users/:id/favorites/:title', (_req, res) => {
+  res.status(200).send(`Adding ${req.params.title} to favorites for ${req.params.id}`);
 });
 
 //Removing favorites
