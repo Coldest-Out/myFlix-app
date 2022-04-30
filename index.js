@@ -10,10 +10,10 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {f
 //Bonus Task my topMovies
 const topMovies = [
   {
-    title:'Interstellar',
-    director:'Christopher Nolan',
-    stars:['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Machenzie Foy', 'Ellen Burstyn'],
-    genre:['Adventure', 'Drama', 'Sci-Fi'],
+    title: 'Interstellar',
+    director: 'Christopher Nolan',
+    stars: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Machenzie Foy', 'Ellen Burstyn'],
+    genre: ['Adventure', 'Drama', 'Sci-Fi'],
     ratings: 8.6,
   },
   {
@@ -75,7 +75,7 @@ app.get('/movies/:title', (_req, res) => {
 //Gets the data about movies genre
 app.get('/movies/genre/:title', (_req, res) => {
   let movie = topMovies.find((movie) => {
-    return movie.title ===req.params.title;
+    return movie.title === req.params.title;
   });
   if (movie) {
     res.status(200).send(`${req.params.title} is a ${movie.genre}`);
@@ -90,7 +90,7 @@ app.get('/directors/:name', (_req, res) => {
 });
 
 //Allows user to register
-app.post('/user', (_req, res) => {
+app.post('/users', (_req, res) => {
   res.send(200).send('Request received for new user');
 });
 
@@ -105,7 +105,7 @@ app.put('/favorites/:id/:title', (_req, res) => {
 });
 
 //Removing favorites
-app.delete('/favorites/:id/:title', (_req, res) => {
+app.delete('/favorites/:id/favorites/:title', (_req, res) => {
   res.status(200).send(`Removing ${req.params.title} from favorites for ${req.params.title}`);
 });
 
