@@ -86,12 +86,12 @@ app.get('/movies/genre/:title', (req, res) => {
 
 //Gets Directors name of movie
 app.get('/directors/:name', (req, res) => {
-  res.status(200).send(`Request received for ${req.params.name}`);
+  res.status(200).send(`This is the information found for ${req.params.name}`);
 });
 
 //Allows user to register
 app.post('/users', (_req, res) => {
-  res.status(200).send(`Request received for new user`);
+  res.status(200).send(`New user has been created!`);
 });
 
 //Update user information
@@ -105,8 +105,8 @@ app.post('/users/:id/favorites/:title', (req, res) => {
 });
 
 //Removing favorites
-app.delete('/favorites/:id/favorites/:title', (req, res) => {
-  res.status(200).send(`Removing ${req.params.title} from favorites for ${req.params.title}`);
+app.delete('/users/:user/favorites', (req, res) => {
+    res.send('The movie has been removed from your favorites list');
 });
 
 //Deletes user
