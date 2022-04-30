@@ -64,7 +64,7 @@ app.get('/documentation', (_req, res) => {
 });
 
 //Gets the list of data/details about movies (titles)
-app.get('movies/:title', (_req, res) => {
+app.get('/movies/:title', (_req, res) => {
   res.json(
     topMovies.find((movie) => {
       return movie.title === req.params.title;
@@ -73,7 +73,7 @@ app.get('movies/:title', (_req, res) => {
 });
 
 //Gets the data about movies genre
-app.get('movies/genre/:title', (_req, res) => {
+app.get('/movies/genre/:title', (_req, res) => {
   let movie = topMovies.find((movie) => {
     return movie.title ===req.params.title;
   });
@@ -85,7 +85,7 @@ app.get('movies/genre/:title', (_req, res) => {
 });
 
 //Gets Directors name of movie
-app.get('directors/:name', (_req, res) => {
+app.get('/directors/:name', (_req, res) => {
   res.status(200).send(`Request received for ${req.params.name}`);
 });
 
