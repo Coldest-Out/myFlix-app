@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Coldest-Out/myFlix-app#readme",
   "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
     "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "lodash": "^4.17.21",
