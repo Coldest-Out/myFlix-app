@@ -87,3 +87,4 @@ Timestamp: Sat Apr 16 2022 21:45:03 GMT-0700 (Pacific Daylight Time)
 ::1 - - [30/Apr/2022:03:38:30 +0000] "GET /movies/Interstellar HTTP/1.1" 500 24 "-" "PostmanRuntime/7.29.0"
 ::1 - - [30/Apr/2022:03:38:45 +0000] "GET /movies/genre/Interstellar HTTP/1.1" 500 24 "-" "PostmanRuntime/7.29.0"
 ::1 - - [30/Apr/2022:03:43:01 +0000] "GET /movies/Interstellar HTTP/1.1" 500 24 "-" "PostmanRuntime/7.29.0"
+::1 - - [30/Apr/2022:04:02:24 +0000] "GET /movies/Interstellar HTTP/1.1" 500 24 "-" "PostmanRuntime/7.29.0"
