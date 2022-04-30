@@ -8,7 +8,7 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {f
 
 
 //Bonus Task topMovies
-const topMovies = [
+const movies = [
   {
     title:'Interstellar',
     director:'Christopher Nolan',
@@ -56,7 +56,7 @@ app.get('/', (_req, res) => {
 
 //Gets list of all movies
 app.get('/movies', (_req, res) => {
-  res.json(topMovies);
+  res.json(movies);
 });
 
 app.get('/documentation', (_req, res) => {
@@ -66,8 +66,8 @@ app.get('/documentation', (_req, res) => {
 //Gets the list of data/details about movies (titles)
 app.get('movies/:title', (_req, res) => {
   res.json()
-    topMovies.find((movie) => {
-      return movie.title === req.params.title;
+    topMovies.find((movies) => {
+      return movies.title === req.params.title;
     });
 });
 
