@@ -13,35 +13,35 @@ const topMovies = [
     title: 'Interstellar',
     directors: 'Christopher Nolan',
     stars: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Machenzie Foy', 'Ellen Burstyn'],
-    genre: ['Adventure', 'Drama', 'Sci-Fi'],
+    genre: 'Sci-Fi',
     ratings: 8.6,
   },
   {
     title: 'The Dark Knight',
     directors: 'Christopher Nolan',
     stars: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine', 'Maggie Gyllenhaal', 'Gary Oldman'],
-    genre: ['Action', 'Crime', 'Drama'],
+    genre: 'Action',
     ratings: 9.0,
   },
   {
     title: 'Spirited Away',
     directors: 'Hayao Miyazaki',
     stars: ['Daveigh Chase', 'Suzanne Pleshette', 'Miyu Irino', 'Rumi Hiiragi', 'Mari Natsuki'],
-    genre: 'Anime',
+    genre: 'Animation',
     ratings: 8.6,
   },
   {
     title: 'Spider-Man: Into the Spider-Verse',
-    directors: ['Bob Persichetti', 'Peter Ramsey', 'Rodney Rothman'],
+    directors: 'Bob Persichetti',
     stars: ['Shameik Moore', 'Jake Johnson', 'Hailee Steinfeld', 'Mahershala Ali', 'Brian Tyree Henry', 'Lily Tomlin'],
-    genre: ['Animation', 'Action', 'Adventure', 'Comedy'],
+    genre: 'Animation',
     ratings: 8.3,
   },
   {
     title: 'Inception',
     directors: 'Christopher Nolan',
     stars: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Ken Watanabe', 'Tom Hardy', 'Dileep Rao'],
-    genre: ['Action', 'Adventure', 'Sci-Fi', 'Thriller'],
+    genre: 'Thriller',
     ratings: 8.8
   }
 ]
