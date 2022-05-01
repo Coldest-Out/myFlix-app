@@ -10,6 +10,13 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {f
 //Bonus Task my topMovies
 const topMovies = [
   {
+    title: 'Silence of the Lambs',
+    directors: 'Jonathan Demme',
+    stars: ['Jodie Foster', 'Anthony Hopkins', 'Lawrence A. Bonney', 'Kasi Lemmons'],
+    genre: 'Drama',
+    ratings: 8.6,
+  },
+  {
     title: 'Interstellar',
     directors: 'Christopher Nolan',
     stars: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Machenzie Foy', 'Ellen Burstyn'],
@@ -31,11 +38,11 @@ const topMovies = [
     ratings: 8.6,
   },
   {
-    title: 'Spider-Man: Into the Spider-Verse',
-    directors: 'Bob Persichetti',
-    stars: ['Shameik Moore', 'Jake Johnson', 'Hailee Steinfeld', 'Mahershala Ali', 'Brian Tyree Henry', 'Lily Tomlin'],
-    genre: 'Animation',
-    ratings: 8.3,
+    title: 'Spider-Man: No Way Home',
+    directors: 'Jon Watts',
+    stars: ['Tom Holland', 'Zendaya', 'Benedict Cumberbatch', 'Jacob Batalon', 'Andrew Garfield', 'Tobey Maguire'],
+    genre: 'Action',
+    ratings: 8.4,
   },
   {
     title: 'Inception',
@@ -43,6 +50,34 @@ const topMovies = [
     stars: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Ken Watanabe', 'Tom Hardy', 'Dileep Rao'],
     genre: 'Thriller',
     ratings: 8.8
+  },
+  {
+    title: 'The Matrix',
+    directors: 'Lana Wachowski',
+    stars: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss', 'Hugo Weaving'],
+    genre: 'Sci-Fi',
+    ratings: 8.7,
+  },
+  {
+    title: 'Back to the Future',
+    directors: 'Robert Zemeckis',
+    stars: ['Michael J. Fox', 'Christopher Lloyd', 'Lea Thompson', 'Crispin Glover'],
+    genre: 'Adventure',
+    ratings: 8.5,
+  },
+  {
+    title: 'Parasite',
+    directors: 'Bong Joon Ho',
+    stars: ['Kang-ho Song', 'Sun-kyun Lee', 'Yeo-jeong Cho', 'Choi Woo-sik'],
+    genre: 'Thriller',
+    ratings: 8.5,
+  },
+  {
+    title: 'Alien',
+    directors: 'Ridley Scott',
+    stars: ['Sigourney Weaver', 'Tom Skerritt', 'John Hurt', 'Veronica Cartwright'],
+    genre: 'Horror',
+    ratings: 8.5,
   }
 ]
 
