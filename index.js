@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js')
   express = require('express');
+  bodyParser = require('body-parser');
   morgan = require('morgan');
   fs = require('fs');
   path = require('path');
@@ -8,6 +9,8 @@ const Models = require('./models.js')
 const Movies = Models.Movie;
 const Users = Models.User;
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { userNewUrlParser: true, useUnifiedTopology: true });
