@@ -40,7 +40,6 @@
         {
           Title: String,
           Director: String,
-          Stars: [String],
           Genre: {
             Name: String,
             Description: String
@@ -64,7 +63,6 @@
         {
           Title: String,
           Director: String,
-          Stars: [String],
           Genre: {
             Name: String,
             Description: String
@@ -117,29 +115,28 @@
             </tr>
             <tr>
               <td>PUT</td>
-              <td>/users/[name]</td>
+              <td>/users/[Username]</td>
               <td>
                 Allows user to update their information - will update information
                 in JSON.
                 <pre>
-        {
-          Username: String,
-          (required)
-          Password: String,
-          Email: String,
-          Birthday: Date
-        }
+                  {
+                    Username: String, (required)
+                    Password: String, (required)
+                    Email: String, (required)
+                    Birthday: Date (required)
+                  }
                 </pre>
               </td>
             </tr>
             <tr>
               <td>POST</td>
-              <td>/favorites/[username]/[movieID]</td>
+              <td>/users/[Username]/movies/[MovieID]</td>
               <td>Allows user to add movie to their list of favorites</td>
             </tr>
             <tr>
               <td>DELETE</td>
-              <td>/favorites/[username]/[movieID]</td>
+              <td>/users/[Username]/movies/[MovieID]</td>
               <td>Allows user to remove movie from their list of favorites</td>
             </tr>
             <tr>
