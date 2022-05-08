@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { userNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/dbname', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 //middleware | logging
