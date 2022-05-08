@@ -25,10 +25,15 @@ app.get('/', (_req, res) => {
 });
 
 //Gets list of all movies
-app.get('/movies', (_req, res) => {
-  Movies.find().then((movies) => {
-    res.status(200).json(movies);
-  });
+app.get('/movies', (req, res) => {
+  Movies.find()
+    .then((movies) => {
+      res.status(201).json(movies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
 
 app.get('/documentation', (_req, res) => {
