@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
 
-mongoose.connect('mongodb://localhost:27017/dbname', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 //middleware | logging
@@ -55,7 +55,7 @@ app.get('/movies/:title', (req, res) => {
 app.get('/movies/genre/:title', (req, res) => {
   Movies.findOne({ Title: req.params.title }).then((movie) => {
     if (movie) {
-      res.status(200).send(`${req.params.titlee} is a ${movie.Genre.Name}`)
+      res.status(200).send(`${req.params.title} is a ${movie.Genre.Name}`)
     } else {
       res.status(400).send('Movie not Found');
     }
@@ -64,7 +64,13 @@ app.get('/movies/genre/:title', (req, res) => {
 
 //Gets Directors name of movie
 app.get('/directors/:name', (req, res) => {
-  res.status(200).send(`This is the information found for ${req.params.name}`);
+  Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
+    if (movie) {
+      res.status(200).json(movie.Director);
+    } else {
+      res.status(400).send('Director Not Found');
+    }
+  });
 });
 
 //Allows user to register
