@@ -22,6 +22,11 @@ passport.use(new LocalStrategy({
       console.log('incorrect username');
       return callback(null, false, {message: 'Incorrect username or password.'});
     }
+    //Hash passwords when loggin in before comparing it to the stored passsword in MongoDB
+    if (!user.validatePassword(password)) {
+      console.log('incorrect password');
+      return callback(null, false, {message: 'Incorrect password.'});
+    };
 
     console.log('finished');
     return callback(null, user);
