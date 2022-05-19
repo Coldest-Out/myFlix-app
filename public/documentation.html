@@ -143,7 +143,10 @@
               <td>POST</td>
               <td>/login</td>
               <td>
-                Returns JSON Object displaying your user information and token.
+                In order to generate a token, you must navigate to the params. Under "Key", add a "Username" field and a "Password" field. Enter your personal information into the "Value" field next to the corresponding "Key" and send your request.
+                <br>
+                <br>
+                When done properly, this will return a JSON Object displaying your user information and token.
                 <pre>
                 {
                     "user": {
@@ -158,6 +161,7 @@
                     "token": String
                 }
                 </pre>
+                Now that you've logged in, you can copy and paste the key when necessary to send your requests. Navigate to any of the desired endpoints and find the Authorization header. Use the drop down and select "Bearer Token", upon doing so, you should see a "token" field that you can paste your token. Repeat this process for each endpoint in order to send your requests.
               </td>
             </tr>
           </tbody>
