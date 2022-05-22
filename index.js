@@ -81,7 +81,7 @@ app.get('/movies/genre/:title', passport.authenticate('jwt', {session: false}), 
     if (movie) {
       res.status(200).send(`${req.params.title} is a ${movie.Genre.Name}`)
     } else {
-      res.status(400).send('Movie not Found');
+      res.status(404).send('Movie not Found');
     }
   });
 });
@@ -92,7 +92,7 @@ app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req
     if (movie) {
       res.status(200).json(movie.Director);
     } else {
-      res.status(400).send('Director Not Found');
+      res.status(404).send('Director Not Found');
     }
   });
 });
@@ -156,7 +156,7 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: ' + err);
+      res.status(404).send('Error: ' + err);
     });
 });
 
@@ -168,7 +168,7 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).send('Error: ' + err);
+      res.status(404).send('Error: ' + err);
     });
 });
 
@@ -208,7 +208,7 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
   (err, updatedUser) => {
     if(err) {
       console.error(err);
-      res.status(500).send('Error: ' + err);
+      res.status(404).send('Error: ' + err);
     } else {
       res.json(updatedUser);
     }
