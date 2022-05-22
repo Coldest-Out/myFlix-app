@@ -161,7 +161,7 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
 });
 
 //Get a user by username
-/* app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
@@ -170,10 +170,10 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
       console.error(err);
       res.status(404).send('Error: ' + err);
     });
-}); */
+});
 
 //Get a user by username
-app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
+/* app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ Username: req.params.name })
   .then((user) => {
     if (user) {
@@ -184,7 +184,7 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
       res.status(404).send('Username not Found');
     }
   });
-});
+}); */
 
 //Update a user's info, by username
 /* We'll expect JSON in this format
