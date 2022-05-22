@@ -70,7 +70,7 @@ app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, 
     if (movie) {
       res.status(200).json(movie);
     } else {
-      res.status(400).send('Movie not Found');
+      res.status(404).send('Movie not Found');
     }
   });
 });
