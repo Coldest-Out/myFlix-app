@@ -186,7 +186,7 @@ app.get(
           };
           res.status(201).json(respData);
         } else {
-          res.status(400).send('User Not Found');
+          res.status(404).send('User Not Found');
         }
       })
       .catch((error) => {
