@@ -161,6 +161,7 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
 });
 
 //Get a user by username
+/*
 app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
@@ -170,18 +171,25 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
       console.error(err);
       res.status(404).send('Error: ' + err);
     });
+}); */
+
+app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Users.findOne({ Username: req.params.Username })
+    if (user) {
+      res.status(200).json(user);
+    }
+    else {
+      res.status(404).send('Username Not Found');
+    }
 });
 
-//Get a user by username
-/* app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
-  Movies.findOne({ Username: req.params.name })
-  .then((user) => {
-    if (user) {
-      res.status(200).then((user) => {
-        res.json(user);
-      });
+/*
+app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
+    if (movie) {
+      res.status(200).json(movie.Director);
     } else {
-      res.status(404).send('Username not Found');
+      res.status(404).send('Director Not Found');
     }
   });
 }); */
