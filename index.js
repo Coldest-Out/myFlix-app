@@ -276,7 +276,6 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
         Password: hashedPassword,
         Email: user.Email,
         Birthday: user.Birthday,
-        FavoriteMovies: user.FavoriteMovies,
       };
       res.status(201).json(updatedUser);
     } else {
