@@ -75,18 +75,6 @@ app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, 
   });
 });
 
-//Gets the data about all movie genre`s found in the API
-app.get('/movies/genre', (req, res) => {
-  Movies.find()
-    .then((movies) => {
-      res.status(201).json(genre);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
-});
-
 //Gets the data about movies genre
 app.get('/movies/genre/:title', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ Title: req.params.title }).then((movie) => {
@@ -267,16 +255,7 @@ app.put('/users/:Username', passport.authenticate('jwt', {session: false}),
   },
   { new: true }, // This line makes sure that the updated document is returned
   (err, updatedUser) => {
-    if(err) {
-      console.error(err);
-      res.status(404).send('Error: ' + err);
-    } if (user) {
-      respData = {
-        Username: user.Username,
-        Password: hashedPassword,
-        Email: user.Email,
-        Birthday: user.Birthday,
-      };
+    if (user) {
       res.status(201).json(updatedUser);
     } else {
       res.status(404).send('User Not Found');
