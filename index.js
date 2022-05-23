@@ -87,7 +87,7 @@ app.get('/movies/genre/:title', passport.authenticate('jwt', {session: false}), 
 });
 
 //Gets Directors name of movie
-/* app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
     if (movie) {
       res.status(200).json(movie.Director);
@@ -95,20 +95,7 @@ app.get('/movies/genre/:title', passport.authenticate('jwt', {session: false}), 
       res.status(404).send('Director Not Found');
     }
   });
-}); */
-app.get(
-  '/directors/:name',
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
-    Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
-      if (movie) {
-        res.status(200).json(movie.Director);
-      } else {
-        res.status(404).send('Director Not Found');
-      }
-    });
-  }
-);
+});
 
 //Allows user to register
 /* We`ll expect JSON in this format
@@ -174,28 +161,41 @@ app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) => 
 });
 
 //Get a user by username
-app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
+/* app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
     })
     .catch((err) => {
       console.error(err);
-      res.status(404).send('Error: ' + err);
+      res.status(500).send('Error: ' + err);
     });
-});
-
-
-/*
-app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
-  Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
-    if (movie) {
-      res.status(200).json(movie.Director);
-    } else {
-      res.status(404).send('Director Not Found');
-    }
-  });
 }); */
+app.get(
+  '/users/:Username',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Users.findOne({ Username: req.params.Username })
+      .then((user) => {
+        if (user) {
+          respData = {
+            Username: user.Username,
+            Email: user.Email,
+            Birthday: user.Birthday,
+            FavoriteMovies: user.FavoriteMovies,
+          };
+          res.status(201).json(respData);
+        } else {
+          res.status(400).send('User Not Found');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(500).send(`Error: ${error}`);
+      });
+  }
+);
+
 
 //Update a user's info, by username
 /* We'll expect JSON in this format
