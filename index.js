@@ -175,13 +175,15 @@ app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req
 
 app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.findOne({ Username: req.params.Username })
-    if (user) {
-      res.status(200).json(user);
-    }
-    else {
+    .then((user) => {
+      res.json(user);
+    })
+    .else ((err) => {
+      console.error(err);
       res.status(404).send('Username Not Found');
-    }
+    });
 });
+
 
 /*
 app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
