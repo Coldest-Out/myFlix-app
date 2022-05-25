@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require('cors');
-app.use(cors());
 
 let allowedOrigins = ['http://localhost:52929', 'https://cold-myflix-app.herokuapp.com'];
 
