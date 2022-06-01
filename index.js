@@ -103,7 +103,7 @@ app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req
   Email: String,
   Birthday: Date
 } */
-app.post('/users',
+app.post('/register',
 [
   check('Username', 'Username is required').isLength({min: 5}),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
