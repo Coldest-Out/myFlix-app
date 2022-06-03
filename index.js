@@ -192,7 +192,7 @@ app.get(
   Email: String, (required)
   Birthday: Date (required)
 } */
-app.put('/users/:Username/update', [
+app.put('/users/:Username', [
   check('Username', 'Username is required').isLength({min: 5}),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required').not().isEmpty(),
