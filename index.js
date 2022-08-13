@@ -46,7 +46,10 @@ app.get('/', (_req, res) => {
   res.send('Welcome to the myFlix App!');
 });
 
-//Gets list of all movies
+/**
+ * API GET Endpoint. ('/movies')
+ * Retrieves the list of all the movies found in the database.
+ */
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
@@ -58,11 +61,20 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
     });
 });
 
+/**
+ * API GET Endpoint ('/documentation')
+ * Retrieves the documentation that presents all the endpoints
+ * Shows what format is accepted to receive
+ * Shows the databases response
+ */
 app.get('/documentation', (_req, res) => {
   res.sendfile(_dirname + '/public/documentation.html');
 });
 
-//Gets the list of data/details about movies (titles)
+/**
+ * API GET Endpoint ('/movies/:title')
+ * Retrieves a specific movies details depending on the movie selected
+ */
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.title }).then((movie) => {
     if (movie) {
@@ -73,7 +85,11 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
   });
 });
 
-//Gets the data about movies genre
+/**
+ * API GET Endpoint ('/movies/genres/:title')
+ * Retrieves a specific movie's genre by the movies title
+ * Gives details about the specific genre
+ */
 app.get('/movies/genres/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.title }).then((movie) => {
     if (movie) {
@@ -84,7 +100,10 @@ app.get('/movies/genres/:title', passport.authenticate('jwt', { session: false }
   });
 });
 
-//Gets Directors name of movie
+/**
+ * API GET Endpoint ('/directors/:name')
+ * Retrieves details about a director by their name
+ */
 app.get('/directors/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ 'Director.Name': req.params.name }).then((movie) => {
     if (movie) {
@@ -95,15 +114,17 @@ app.get('/directors/:name', passport.authenticate('jwt', { session: false }), (r
   });
 });
 
-//Allows user to register
-/* We`ll expect JSON in this format
-{
+/**
+ * API POST Endpoint ('/register')
+ * Allows users to register and create an account
+ * Data base responses {
   ID: Integer,
   Username: String,
   Password: String,
   Email: String,
   Birthday: Date
-} */
+}
+ */
 app.post('/register',
   [
     check('Username', 'Username is required').isLength({ min: 5 }),
@@ -146,7 +167,10 @@ app.post('/register',
       });
   });
 
-//Get all users
+/**
+ * API GET Endpoint ('/users')
+ * Retrieves a list of all users within the application/database
+ */
 app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.find()
     .then((users) => {
@@ -158,7 +182,10 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
     });
 });
 
-//Get a user by username
+/**
+ * API GET Endpoint ('/users/:Username')
+ * Retrieves data of a specific user by their username
+ */
 app.get(
   '/users/:Username',
   passport.authenticate('jwt', { session: false }),
@@ -185,14 +212,17 @@ app.get(
 );
 
 
-//Update a user's info, by username
-/* We'll expect JSON in this format
+/**
+ * API PUT Endpoint ('/users/:Username')
+ * Allows users to update their current user information by their username
+ * We'll expect JSON in this format
 {
   Username: String, (required)
   Password: String, (required)
   Email: String, (required)
   Birthday: Date (required)
-} */
+}
+ */
 app.put('/users/:Username', [
   check('Username', 'Username is required').isLength({ min: 5 }),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
@@ -226,7 +256,10 @@ app.put('/users/:Username', [
     });
 });
 
-//Add a movie to a user's list of favorites
+/**
+ * API POST Endpoint ('/users/:Username/movies/:MovieID')
+ * Allows users to add a movie to their favorite movies list
+ */
 app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $push: { FavoriteMovies: req.params.MovieID }
@@ -242,7 +275,10 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
     });
 });
 
-//Allows users to delete movie from favorites
+/**
+ * API DELETE Endpoint ('/users/:Username/movies/:MovieID')
+ * Allows users to delete a movies from their favorite movies list
+ */
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
     $pull: { FavoriteMovies: req.params.MovieID }
@@ -258,7 +294,10 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { se
     });
 });
 
-// Delete a user by username
+/**
+ * API DELETE Endpoint ('/users/:Username')
+ * Allows users to delete their accounts
+ */
 app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
