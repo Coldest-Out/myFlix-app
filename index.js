@@ -141,7 +141,9 @@ app.post('/register',
     check('Username', 'Username is required').isLength({ min: 5 }),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail()
+    check('Email', 'Email does not appear to be valid').isEmail(),
+    // Birthday Validation
+    check('Birthday', 'Please enter a birthday before todays date.').custom((value, { req }) => value <= new Date().getTime())
   ], (req, res) => {
 
     // check the validation object for errors
